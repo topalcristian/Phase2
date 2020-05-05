@@ -1,11 +1,12 @@
 package Other;
 
-import Physics.Vector2d;
+import Physics.Vector2D;
 
 public interface Function2d {
-    public double evaluate(Vector2d p);
+    double evaluate(Vector2D p);
 
-    public Vector2d gradient(Vector2d p, double delta);
+    Vector2D gradient(Vector2D p, double delta);
 
-    public Vector2d gradient(float x, float y);
+    Vector2D gradient(float x, float y);
+
 }

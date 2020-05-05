@@ -2,9 +2,12 @@ package Physics;
 
 import Other.GameObject;
 import Screens.TheCourse;
-import com.badlogic.gdx.math.Vector3;
 
 public class Euler implements PhysicsEngine {
+    @Override
+    public void solve(GameObject obj, TheCourse c, double h) {
+
+    }/*
 
     public Vector3 force(GameObject obj, TheCourse c, double h) {
 
@@ -22,8 +25,6 @@ public class Euler implements PhysicsEngine {
                 0
         );
 
-        System.out.println(c.get_height().gradient(obj.position.x, obj.position.y).x + "," + c.get_height().gradient(obj.position.x, obj.position.y).y);
-
         return friction.add(gravity);
     }
 
@@ -36,7 +37,7 @@ public class Euler implements PhysicsEngine {
                 (float) (obj.position.y + h * obj.velocity.y),
                 (float) (obj.position.z + h * obj.velocity.z)
         );
-        System.out.println("Position: " + response[0]);
+
         // Velocity vector
         Vector3 f = this.force(obj, c, h);
 
@@ -47,5 +48,5 @@ public class Euler implements PhysicsEngine {
         );
         response[2] = f;
         return response;
-    }
+    }*/
 }

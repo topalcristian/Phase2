@@ -1,6 +1,6 @@
 package Other;
 
-import Physics.Vector2d;
+import Physics.Vector2D;
 
 public class HeightSolver implements Function2d {
 
@@ -12,7 +12,7 @@ public class HeightSolver implements Function2d {
     }
 
     @Override
-    public double evaluate(Vector2d p) {
+    public double evaluate(Vector2D p) {
         x = p.get_x();
         y = p.get_y();
         return eval(height);
@@ -27,13 +27,13 @@ public class HeightSolver implements Function2d {
     }
 
 
-    public Vector2d gradient(float x, float y) {
-        return this.gradient(new Vector2d(x, y), 0.01);
+    public Vector2D gradient(float x, float y) {
+        return this.gradient(new Vector2D(x, y), 0.01);
     }
 
-    public Vector2d gradient(Vector2d p, double delta) {
+    public Vector2D gradient(Vector2D p, double delta) {
         double z = evaluate(p);
-        return new Vector2d((z - evaluate(p.addX(delta))) * delta, (z - evaluate(p.addY(delta)) * delta));
+        return new Vector2D((z - evaluate(p.addX(delta))) * delta, (z - evaluate(p.addY(delta)) * delta));
     }
 
 
@@ -107,11 +107,22 @@ public class HeightSolver implements Function2d {
                     while (ch >= 'a' && ch <= 'w') nextChar();
                     String func = str.substring(startPos, this.pos);
                     x = parseFactor();
-                    if (func.equals("sqrt")) x = Math.sqrt(x);
-                    else if (func.equals("sin")) x = Math.sin(Math.toRadians(x));
-                    else if (func.equals("cos")) x = Math.cos(Math.toRadians(x));
-                    else if (func.equals("tan")) x = Math.tan(Math.toRadians(x));
-                    else throw new RuntimeException("Unknown function: " + func);
+                    switch (func) {
+                        case "sqrt":
+                            x = Math.sqrt(x);
+                            break;
+                        case "sin":
+                            x = Math.sin(Math.toRadians(x));
+                            break;
+                        case "cos":
+                            x = Math.cos(Math.toRadians(x));
+                            break;
+                        case "tan":
+                            x = Math.tan(Math.toRadians(x));
+                            break;
+                        default:
+                            throw new RuntimeException("Unknown function: " + func);
+                    }
                 } else {
                     throw new RuntimeException("Unexpected: " + (char) ch);
                 }

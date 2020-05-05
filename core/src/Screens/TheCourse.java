@@ -1,9 +1,8 @@
 package Screens;
 
-import Other.Ball;
-import Other.Function2d;
-import Other.HeightSolver;
-import Physics.Vector2d;
+import Other.*;
+import Physics.Vector2D;
+import com.badlogic.gdx.math.Vector3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,12 +21,12 @@ public class TheCourse {
     private double[] goal = new double[2];
     private String heightFun;
     private double[][] obstacle;
-    public List<Ball> balls = new ArrayList<Ball>();
+    public List<GameObject> objects = new ArrayList<>();
 
     public TheCourse(String courseName) {
 //        game = g;
 
-        if (courseName == "")
+        if (courseName.equals(""))
             courseName = "course1.txt";
         try {
             File myObj = new File(courseName);
@@ -43,14 +42,14 @@ public class TheCourse {
             goal[1] = myReader.nextDouble();
             myReader.nextLine();
             heightFun = myReader.nextLine();
-            int i = 0, j = 0;
+            int i = 0, j = 0;/*
             while (myReader.hasNextDouble()) {
                 obstacle[i][j] = myReader.nextDouble();
                 if (j == 1) {
                     j--;
                     i++;
                 } else j++;
-            }
+            }*/
 
 
             myReader.close();
@@ -60,30 +59,34 @@ public class TheCourse {
 
         }
 
-        if (this.balls.size() == 0) {
-            this.balls.add(new Ball());
+        if (this.objects.size() == 0) {
+            this.objects.add(new Ball());
+            this.objects.add(new Hole());
         }
+
+        this.objects.get(0).position = new Vector3((float) start[0], (float) start[1], (float) this.get_height().evaluate(get_start_position()));
+        this.objects.get(0).old_position = new Vector3((float) start[0], (float) start[1], (float) this.get_height().evaluate(get_start_position()));
+
+        this.objects.get(1).position = new Vector3((float) goal[0], (float) goal[1], (float) this.get_height().evaluate(get_flag_position()));
     }
 
 
     public Function2d get_height() {
-        Function2d H = new HeightSolver(heightFun);
-        return H;
+        return new HeightSolver(heightFun);
     }
 
-    public Vector2d get_flag_position() {
-        Vector2d v1 = new Vector2d(goal[0], goal[1]);
-        return v1;
+    public double heightEval(double x, double y) {
+        return get_height().evaluate(new Vector2D(x, y));
     }
 
-    public Vector2d get_start_position() {
-        Vector2d v1 = new Vector2d(start[0], start[1]);
-        return v1;
+    public Vector2D get_flag_position() {
+        return new Vector2D(goal[0], goal[1]);
     }
 
-    public double get_friction_coefficient() {
-        return friction;
+    public Vector2D get_start_position() {
+        return new Vector2D(start[0], start[1]);
     }
+
 
     public double get_maximum_velocity() {
         return iniSpeed;
@@ -101,34 +104,26 @@ public class TheCourse {
         return gravity;
     }
 
-    public double getIniSpeed() {
-        return iniSpeed;
-    }
-
     public double getMass() {
         return mass;
     }
 
 
-    public Vector2d[] getObstacle() {
-        Vector2d[] v1 = new Vector2d[obstacle.length];
+    public Vector2D[] getObstacle() {
+        Vector2D[] v1 = new Vector2D[obstacle.length];
         for (int i = 0; i < obstacle.length; i++) {
-            v1[i] = new Vector2d(obstacle[i][0], obstacle[i][1]);
+            v1[i] = new Vector2D(obstacle[i][0], obstacle[i][1]);
         }
         return v1;
     }
 
-    public boolean checkIfCompleted(Ball b) {
 
-        // If ball within tolerance of finish flag
-        // and ball is not moving return true
-        if (this.get_flag_position().dst(new Vector2d(b.position.x, b.position.y)) <= get_hole_tolerance() && b.velocity.len() == 0)
-            return true;
-        return false;
+    public GameObject getBall() {
+        return objects.get(0);
     }
 
-    public List<Ball> getBalls() {
-        return balls;
+    public List<GameObject> getObjects() {
+        return objects;
     }
 
 }

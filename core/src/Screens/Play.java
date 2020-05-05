@@ -1,8 +1,9 @@
 package Screens;
 
-import Physics.Euler;
+import Other.TrackingCameraController;
 import Physics.PhysicsEngine;
-import Physics.Vector2d;
+import Physics.Vector2D;
+import Physics.Verlet;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -11,14 +12,16 @@ import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
-import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+
+import java.util.ArrayList;
 
 
 public class Play implements Screen {
+
+    public static int borderSize = 75;
     final float terrainStepSize = 1;
     final int terrainWidth = 20;
     final int terrainLength = 15;
@@ -70,91 +73,57 @@ public class Play implements Screen {
 
 
     public PerspectiveCamera cam;
-    public FirstPersonCameraController camController;
+    public static ArrayList<ModelInstance> instances = new ArrayList<>();
+
+
     public ModelBatch modelBatch = new ModelBatch();
-    public Array<ModelInstance> instances = new Array<ModelInstance>();
+    public static TheCourse course = new TheCourse("");
     public Environment env;
     public ModelBuilder modelBuilder = new ModelBuilder();
-    public Model golfBall1;
-    public Model golfBall2;
-
+    public static PhysicsEngine engine = new Verlet();
+    public static World PS = new World(course, engine);
+    public TrackingCameraController camController;
+    public Model golfBall;
+    public Model hole;
+    //public CameraInputController trackingCameraController;
     public ModelInstance ourGolfBall, Goal;
-
-    TheCourse course = new TheCourse("");
-    PhysicsEngine engine = new Euler();
-    World PS = new World(course, engine);
     Mesh terrain;
     ShaderProgram terrainShader;
 
+
     Play(Game g) {
 
-        golfBall1 = modelBuilder.createSphere(
-                1,
-                1,
-                1,
-                25,
-                25,
-                new Material(ColorAttribute.createDiffuse(Color.WHITE)),
-                VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal
-        );
+        // Ball
+        golfBall = modelBuilder.createSphere(1, 1, 1, 25, 25, new Material(ColorAttribute.createDiffuse(Color.WHITE)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+        ourGolfBall = new ModelInstance(golfBall, course.getObjects().get(0).position);
 
-        ourGolfBall = new ModelInstance(
-                golfBall1,
-                (int) course.get_start_position().get_x(),
-                (int) course.get_start_position().get_y(),
-                (float) ((float) course.get_height().evaluate(new Vector2d(course.get_start_position().get_x(), course.get_start_position().get_y())) + 0.5)
-        );
-
-        golfBall2 = modelBuilder.createCylinder(
-                (float) course.get_hole_tolerance() + 2,
-                20,
-                (float) course.get_hole_tolerance() + 2,
-                25, GL20.GL_TRIANGLES, new Material(new BlendingAttribute((float) 0.5)),
-                VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal
-        );
-
-        Goal = new ModelInstance(
-                golfBall2,
-                (int) course.get_flag_position().get_x(),
-                (int) course.get_flag_position().get_y(),
-                (int) course.get_height().evaluate(new Vector2d(course.get_flag_position().get_x(), course.get_flag_position().get_y()))
-        );
-
+        // Hole
+        hole = modelBuilder.createCylinder((float) course.get_hole_tolerance() + 2, 30, (float) course.get_hole_tolerance() + 2, 25, GL20.GL_TRIANGLES, new Material(new BlendingAttribute((float) 0.5)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+        Goal = new ModelInstance(hole, course.getObjects().get(1).position);
         Goal.transform.rotate(1, 0, 0, 90);
-        Goal.transform.translate(
-                (int) course.get_flag_position().get_x(),
-                (int) course.get_flag_position().get_y(),
-                (int) course.get_height().evaluate(new Vector2d(course.get_flag_position().get_x(), course.get_flag_position().get_y()))
-        );
+        Goal.transform.translate(course.getObjects().get(1).position);
 
+        // Environment
         env = new Environment();
         env.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.6f, 0.6f, 0.7f, 1f));
         env.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, 0, -0.8f, 0));
+
+        // Cam
         cam = new PerspectiveCamera(90, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        cam.position.set(
-                (int) course.get_flag_position().get_x(),
-                (int) course.get_flag_position().get_y() - 20,
-                (int) course.get_height().evaluate(new Vector2d(course.get_flag_position().get_x(), course.get_flag_position().get_y())) + 2
-        );
-        cam.lookAt(
-                (int) course.get_flag_position().get_x(),
-                (int) course.get_flag_position().get_y(),
-                (int) course.get_height().evaluate(new Vector2d(course.get_flag_position().get_x(), course.get_flag_position().get_y()))
-        );
+
+        cam.position.set(course.getObjects().get(0).position.x, course.getObjects().get(0).position.y - 10, course.getObjects().get(0).position.z + 10);
+        cam.lookAt(course.getObjects().get(0).position);
         cam.near = 1f;
         cam.far = 300f;
         cam.update();
-        camController = new FirstPersonCameraController(cam);
+        camController = new TrackingCameraController(cam);
+        camController.setTrackedVector(course.getObjects().get(0).position);
         Gdx.input.setInputProcessor(camController);
 
-
         terrainShader = new ShaderProgram(VERT_SHADER, FRAG_SHADER);
-        terrain = new Mesh(true, MAX_VERTS, 0,
-                new VertexAttribute(VertexAttributes.Usage.Position, POSITION_COMPONENTS, "a_position"),
-                new VertexAttribute(VertexAttributes.Usage.ColorPacked, 4, "a_color"));
+        terrain = new Mesh(true, MAX_VERTS, 0, new VertexAttribute(VertexAttributes.Usage.Position, POSITION_COMPONENTS, "a_position"), new VertexAttribute(VertexAttributes.Usage.ColorPacked, 4, "a_color"));
         instances.add(ourGolfBall);
         instances.add(Goal);
-        PS.take_shot(new Vector2d(1, 1));
 
 
     }
@@ -171,46 +140,71 @@ public class Play implements Screen {
         //bottom left vertex
         terrainVertices[terrainVertexIndex++] = x;
         terrainVertices[terrainVertexIndex++] = z;
-        terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2d(x, z));
-        terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
-
+        if ((float) course.get_height().evaluate(new Vector2D(x, z)) < 0) {
+            terrainVertices[terrainVertexIndex++] = 0;
+            terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
+        } else {
+            terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x, z));
+            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+        }
         //bottom right vertex
         terrainVertices[terrainVertexIndex++] = x + 1;
         terrainVertices[terrainVertexIndex++] = z;
-        terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2d(x + 1, z));
-        terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
-
+        if ((float) course.get_height().evaluate(new Vector2D(x + 1, z)) < 0) {
+            terrainVertices[terrainVertexIndex++] = 0;
+            terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
+        } else {
+            terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x + 1, z));
+            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+        }
         //Top left vertex
         terrainVertices[terrainVertexIndex++] = x;
         terrainVertices[terrainVertexIndex++] = z + 1;
-        terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2d(x, z + 1));
-        terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
-
+        if ((float) course.get_height().evaluate(new Vector2D(x, z + 1)) < 0) {
+            terrainVertices[terrainVertexIndex++] = 0;
+            terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
+        } else {
+            terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x, z + 1));
+            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+        }
         //Second triangle (bottom right, top left, top right)
         //bottom right
         terrainVertices[terrainVertexIndex++] = x + 1;
         terrainVertices[terrainVertexIndex++] = z;
-        terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2d(x + 1, z));
-        terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
-
+        if ((float) course.get_height().evaluate(new Vector2D(x + 1, z)) < 0) {
+            terrainVertices[terrainVertexIndex++] = 0;
+            terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
+        } else {
+            terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x + 1, z));
+            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+        }
         //top left vertex
         terrainVertices[terrainVertexIndex++] = x;
         terrainVertices[terrainVertexIndex++] = z + 1;
-        terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2d(x, z + 1));
-        terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
-
+        if ((float) course.get_height().evaluate(new Vector2D(x, z + 1)) < 0) {
+            terrainVertices[terrainVertexIndex++] = 0;
+            terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
+        } else {
+            terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x, z + 1));
+            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+        }
         //top right vertex
         terrainVertices[terrainVertexIndex++] = x + 1;
         terrainVertices[terrainVertexIndex++] = z + 1;
-        terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2d(x + 1, z + 1));
-        terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+        if ((float) course.get_height().evaluate(new Vector2D(x + 1, z + 1)) < 0) {
+            terrainVertices[terrainVertexIndex++] = 0;
+            terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
+        } else {
+            terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x + 1, z + 1));
+            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+        }
     }
 
 
     void createTerrain(float xOffset, float yOffset) {
         //Go over chunks of terrain and create as many chunks as needed to create the terrain
-        for (int x = -50; x < 50; x++) {
-            for (int y = -50; y < 50; y++) {
+        for (int x = -borderSize; x < borderSize; x++) {
+            for (int y = -borderSize; y < borderSize; y++) {
                 float xCoordinate = x + xOffset;
                 float zCoordinate = y + yOffset;
                 drawGroundQuad(xCoordinate, zCoordinate);
@@ -234,6 +228,7 @@ public class Play implements Screen {
         terrainShader.setUniformMatrix("u_projTrans", cam.combined);
         terrain.render(terrainShader, GL20.GL_TRIANGLES, 0, vertexCount);
         terrainShader.end();
+        //TODO
 
         //reset index to zero
         terrainVertexIndex = 0;
@@ -256,13 +251,14 @@ public class Play implements Screen {
 
 
         PS.step(delta);
-        camController.update();
+        camController.setTrackedVector(course.getObjects().get(0).position);
+
+        if (!TrackingCameraController.SHOOT)
+            camController.update(delta);
 
         // Show
         modelBatch.begin(cam);
-        instances.get(0).transform.setTranslation(
-                course.getBalls().get(0).position
-        );
+        instances.get(0).transform.setTranslation(course.getObjects().get(0).position);
         modelBatch.render(instances, env);
         modelBatch.end();
     }
@@ -295,6 +291,5 @@ public class Play implements Screen {
 
     @Override
     public void dispose() {
-
     }
 }
