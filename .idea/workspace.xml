@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="00f4ce15-ce36-431e-8c12-7f407d8ad4c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/course1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/course1.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Cristian &lt;topal.cristian@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/topalcristian/Phase2.git" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZGQlhxVHbg8mF7snZUjO4yeGNj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CrazyPutting-41e1475d2c32a5bf697a5328dee35cee40095c6d" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\src\Physics" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\src" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\assets" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\assets\font" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\src\Other" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\src\Physics" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\assets" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mygdx.game.screens" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Physics" />
+      <recent name="screens" />
+      <recent name="com.mygdx.game" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.DesktopLauncher (1)">
+    <configuration name="DesktopLauncher (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Other.desktop.DesktopLauncher" />
+      <module name="Try2.desktop.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Other.desktop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DesktopLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mygdx.game.desktop.DesktopLauncher" />
+      <module name="Try2.desktop.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mygdx.game.desktop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TheCourse" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Screens.TheCourse" />
+      <module name="Try2.core.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Screens.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main_class" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Physics.main_class" />
+      <module name="Try2.core.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Physics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DesktopLauncher (1)" />
+        <item itemvalue="Application.DesktopLauncher" />
+        <item itemvalue="Application.main_class" />
+        <item itemvalue="Application.TheCourse" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00f4ce15-ce36-431e-8c12-7f407d8ad4c4" name="Default Changelist" comment="" />
+      <created>1584463104000</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584463104000</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1587462550144</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587462550144</updated>
+    </task>
+    <task id="LOCAL-00002" summary="All Working">
+      <created>1588679917227</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1588679917227</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="All Working" />
+    <option name="LAST_COMMIT_MESSAGE" value="All Working" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Notifications" timestamp="1584628829367">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1584628829367" />
+    <state x="690" y="276" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1584630268605">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="276" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584630268605" />
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589028515734">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589028515734" />
+    <state x="1199" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584640809964">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1199" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584640809964" />
+    <state x="1166" y="272" key="#com.intellij.ide.util.MemberChooser" timestamp="1588436799256">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1166" y="272" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588436799256" />
+    <state x="181" y="450" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1584463213000">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="181" y="450" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584463213000" />
+    <state x="539" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587738748338">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587738748338" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587461437102">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587461437102" />
+    <state x="715" y="224" key="#xdebugger.evaluate" timestamp="1588514674941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="715" y="224" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1588514674941" />
+    <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1586861542189">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1586861542189" />
+    <state x="1044" y="119" key="CommitChangelistDialog2" timestamp="1589028647327">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1044" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589028647327" />
+    <state x="740" y="262" key="FileChooserDialogImpl" timestamp="1588514011371">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588514011371" />
+    <state x="1274" y="437" width="356" height="166" key="Github.CreateGistDialog" timestamp="1587461286706">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1274" y="437" width="356" height="166" key="Github.CreateGistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587461286706" />
+    <state x="1322" y="418" width="260" height="211" key="Github.ShareDialog" timestamp="1587462683955">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1322" y="418" width="260" height="211" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587462683955" />
+    <state width="1877" height="99" key="GridCell.Tab.0.bottom" timestamp="1589028517044">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="99" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589028517044" />
+    <state width="1877" height="99" key="GridCell.Tab.0.center" timestamp="1589028517044">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="99" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589028517044" />
+    <state width="1877" height="99" key="GridCell.Tab.0.left" timestamp="1589028517044">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="99" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589028517044" />
+    <state width="1877" height="99" key="GridCell.Tab.0.right" timestamp="1589028517044">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="99" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589028517044" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588629021031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588629021031" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1588629021031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588629021031" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1588629021031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588629021031" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1588629021031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588629021031" />
+    <state x="922" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588768840973">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="922" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588768840973" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589028615045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589028615045" />
+    <state x="702" y="140" key="refactoring.ChangeSignatureDialog" timestamp="1584630996382">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="140" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584630996382" />
+    <state x="1096" y="244" key="run.anything.popup" timestamp="1588445147408">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1096" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588445147408" />
+    <state x="1091" y="107" width="672" height="678" key="search.everywhere.popup" timestamp="1588434411965">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1091" y="107" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588434411965" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Remote">
+        <watch expression="((Ball)course.objects.get(0)).position" custom="Other.Ball" />
+        <watch expression="((Ball)course.objects.get(0)).old_position" custom="Other.Ball" />
+        <watch expression="scalar" language="JAVA" />
+        <watch expression="course.getObjects().get(0).velMagnitude()" language="JAVA" />
+        <watch expression="this.course.getObjects().get(0).velocity" />
+        <watch expression="((World)this).course" custom="Screens.World" />
+        <watch expression="inMove" />
+        <watch expression="((World)this).game" custom="Screens.World" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Try2$DesktopLauncher.ic" NAME="DesktopLauncher Coverage Results" MODIFIED="1584618723814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.mygdx.game.desktop.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Try2$DesktopLauncher__1_.ic" NAME="DesktopLauncher (1) Coverage Results" MODIFIED="1588514993601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Other.desktop.*</FILTER>
+    </SUITE>
+  </component>
+</project>
