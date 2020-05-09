@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00f4ce15-ce36-431e-8c12-7f407d8ad4c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/course1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/course1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,19 +91,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.DesktopLauncher (1)">
-    <configuration name="DesktopLauncher (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Other.desktop.DesktopLauncher" />
-      <module name="Try2.desktop.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Other.desktop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DesktopLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mygdx.game.desktop.DesktopLauncher" />
       <module name="Try2.desktop.main" />
@@ -131,6 +130,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DesktopLauncher (1)" />
+      <item itemvalue="Application.DesktopLauncher" />
+      <item itemvalue="Application.main_class" />
+      <item itemvalue="Application.TheCourse" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.DesktopLauncher (1)" />
@@ -177,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588679917227</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="All Working">
+      <created>1589028698683</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589028698683</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,10 +228,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="276" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584630268605" />
-    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589028515734">
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589029964036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589028515734" />
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589029964036" />
     <state x="1199" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584640809964">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -248,10 +260,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1586861542189" />
-    <state x="1044" y="119" key="CommitChangelistDialog2" timestamp="1589028647327">
+    <state x="1044" y="119" key="CommitChangelistDialog2" timestamp="1589028696740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1044" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589028647327" />
+    <state x="1044" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589028696740" />
     <state x="740" y="262" key="FileChooserDialogImpl" timestamp="1588514011371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -264,22 +276,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1322" y="418" width="260" height="211" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587462683955" />
-    <state width="1877" height="99" key="GridCell.Tab.0.bottom" timestamp="1589028517044">
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1589029784609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="99" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589028517044" />
-    <state width="1877" height="99" key="GridCell.Tab.0.center" timestamp="1589028517044">
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589029784609" />
+    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1589029784609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="99" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589028517044" />
-    <state width="1877" height="99" key="GridCell.Tab.0.left" timestamp="1589028517044">
+    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589029784609" />
+    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1589029784609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="99" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589028517044" />
-    <state width="1877" height="99" key="GridCell.Tab.0.right" timestamp="1589028517044">
+    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589029784609" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1589029784609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="99" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589028517044" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589029784609" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588629021031">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -296,14 +308,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588629021031" />
-    <state x="922" y="254" key="Vcs.Push.Dialog.v2" timestamp="1588768840973">
+    <state x="922" y="254" key="Vcs.Push.Dialog.v2" timestamp="1589028710738">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="922" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588768840973" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589028615045">
+    <state x="922" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589028710738" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589029699870">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589028615045" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589029699870" />
     <state x="702" y="140" key="refactoring.ChangeSignatureDialog" timestamp="1584630996382">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
