@@ -3,6 +3,7 @@ package Screens;
 import Physics.PhysicsEngine;
 import Physics.Vector2D;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector3;
 
 import java.io.*;
@@ -27,8 +28,8 @@ public class World {
         justStarted = false;
         if (!isInMove()) {
             if (checkIfCompleted())
-                //    ((Game) Gdx.app.getApplicationListener()).setScreen(new Win(game));
-                System.out.println("lol");
+                ((Game) Gdx.app.getApplicationListener()).setScreen(new Win(game));
+            //System.out.println("lol");
             started = false;
         }
     }
