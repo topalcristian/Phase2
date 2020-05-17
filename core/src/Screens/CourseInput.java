@@ -6,9 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import java.io.File;
@@ -26,7 +24,12 @@ public class CourseInput implements Screen {
     private TextField goalField;
     private TextField heightField;
     private TextField obstacleField;
+    public static String gamePhysics = "rk4";
 
+    private TextButton buttonPhysicsV;
+    private TextButton buttonPhysicsH;
+    private TextButton buttonPhysicsRK;
+    private TextButton buttonPhysicsE;
 
     private Game game;
     private Stage stage;
@@ -39,8 +42,8 @@ public class CourseInput implements Screen {
 
         Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
         final TextButton btnCreate = new TextButton("Click", skin);
-        btnCreate.setPosition(300, 250);
-        btnCreate.setSize(300, 60);
+        btnCreate.setPosition(Gdx.graphics.getWidth() / 2 - 125, 250);
+        btnCreate.setSize(250, 60);
         btnCreate.addListener(new ClickListener() {
             @Override
             public void touchUp(InputEvent e, float x, float y, int point, int button) {
@@ -49,51 +52,101 @@ public class CourseInput implements Screen {
         });
 
 
+        buttonPhysicsV = new TextButton("Verlet", skin, "toggle");
+        buttonPhysicsV.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                gamePhysics = "verlet";
+            }
+        });
+/*
+        buttonPhysicsH = new TextButton("Heun's3", skin,"toggle");
+        buttonPhysicsH.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                new Heuns3();
+            }
+        });
+*/
+        buttonPhysicsRK = new TextButton("RK4", skin, "toggle");
+        buttonPhysicsRK.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                gamePhysics = "rk4";
+            }
+        });
+
+        buttonPhysicsE = new TextButton("Euler", skin, "toggle");
+        buttonPhysicsE.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                gamePhysics = "euler";
+            }
+        });
+
+        ButtonGroup buttonGroupPhysics = new ButtonGroup(buttonPhysicsE, buttonPhysicsV, buttonPhysicsRK);
+//next set the max and min amount to be checked
+        buttonGroupPhysics.setMaxCheckCount(1);
+        buttonGroupPhysics.setMinCheckCount(1);
+        buttonGroupPhysics.setChecked("RK4");
+
+
+        Table tablePhysics = new Table();
+        tablePhysics.setWidth(stage.getWidth());
+        //  tableDimensions.align(Align.center|Align.top);
+        tablePhysics.setPosition(0, Gdx.graphics.getHeight() - 200);
+        tablePhysics.row();
+        tablePhysics.add(buttonPhysicsE).size(100, 50);
+        tablePhysics.add(buttonPhysicsV).size(100, 50);
+        tablePhysics.add(buttonPhysicsRK).size(100, 50);
+        stage.addActor(tablePhysics);
+
+
         gravityField = new TextField("", skin);
-        gravityField.setPosition(300, 700);
-        gravityField.setSize(300, 40);
+        gravityField.setPosition(Gdx.graphics.getWidth() / 2 - 125, 700);
+        gravityField.setSize(250, 40);
         gravityField.setMessageText("gravity");
         stage.addActor(gravityField);
 
         massField = new TextField("", skin);
-        massField.setPosition(300, 650);
-        massField.setSize(300, 40);
+        massField.setPosition(Gdx.graphics.getWidth() / 2 - 125, 650);
+        massField.setSize(250, 40);
         massField.setMessageText("mass");
         stage.addActor(massField);
 
         frictionField = new TextField("", skin);
-        frictionField.setPosition(300, 600);
-        frictionField.setSize(300, 40);
+        frictionField.setPosition(Gdx.graphics.getWidth() / 2 - 125, 600);
+        frictionField.setSize(250, 40);
         frictionField.setMessageText("friction");
         stage.addActor(frictionField);
 
         iniSpeedField = new TextField("", skin);
-        iniSpeedField.setPosition(300, 550);
-        iniSpeedField.setSize(300, 40);
+        iniSpeedField.setPosition(Gdx.graphics.getWidth() / 2 - 125, 550);
+        iniSpeedField.setSize(250, 40);
         iniSpeedField.setMessageText("initial speed");
         stage.addActor(iniSpeedField);
 
         winAreaField = new TextField("", skin);
-        winAreaField.setPosition(300, 500);
-        winAreaField.setSize(300, 40);
+        winAreaField.setPosition(Gdx.graphics.getWidth() / 2 - 125, 500);
+        winAreaField.setSize(250, 40);
         winAreaField.setMessageText("win area");
         stage.addActor(winAreaField);
 
         startField = new TextField("", skin);
-        startField.setPosition(300, 450);
-        startField.setSize(300, 40);
+        startField.setPosition(Gdx.graphics.getWidth() / 2 - 125, 450);
+        startField.setSize(250, 40);
         startField.setMessageText("start");
         stage.addActor(startField);
 
         goalField = new TextField("", skin);
-        goalField.setPosition(300, 400);
-        goalField.setSize(300, 40);
+        goalField.setPosition(Gdx.graphics.getWidth() / 2 - 125, 400);
+        goalField.setSize(250, 40);
         goalField.setMessageText("goal");
         stage.addActor(goalField);
 
         heightField = new TextField("", skin);
-        heightField.setPosition(300, 350);
-        heightField.setSize(300, 40);
+        heightField.setPosition(Gdx.graphics.getWidth() / 2 - 125, 350);
+        heightField.setSize(250, 40);
         heightField.setMessageText("formula");
         stage.addActor(heightField);
 /*

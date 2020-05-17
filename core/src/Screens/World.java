@@ -15,6 +15,7 @@ public class World {
     public PhysicsEngine engine;
     public static boolean started = false;
     public static boolean justStarted = false;
+    public boolean completed = false;
     Game game;
     int shots = 0;
 
@@ -27,9 +28,12 @@ public class World {
         this.engine.solve(this.course.objects.get(0), this.course, h);
         justStarted = false;
         if (!isInMove()) {
-            if (checkIfCompleted())
+            if (checkIfCompleted()) {
+                completed = true;
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new Win(game));
-            //System.out.println("lol");
+                //System.out.println("lol");
+            }
+
             started = false;
         }
     }
@@ -46,8 +50,9 @@ public class World {
 
         // If ball within tolerance of finish flag
         // and ball is not moving return true
-        return this.course.get_flag_position().dst(new Vector2D(this.course.getBall().position.x, this.course.getBall().position.y)) <= this.course.get_hole_tolerance();
+        return this.course.get_flag_position().dst(new Vector2D(this.course.getBall().position.x, this.course.getBall().position.y)) <= (this.course.get_hole_tolerance() + 1);
     }
+
 
     public Vector3 getBallPosition() {
         return this.course.getObjects().get(0).position;

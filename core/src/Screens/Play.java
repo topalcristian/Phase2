@@ -1,11 +1,10 @@
 package Screens;
 
 import Other.TrackingCameraController;
-import Physics.PhysicsEngine;
-import Physics.Vector2D;
-import Physics.Verlet;
+import Physics.*;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g3d.*;
@@ -14,7 +13,9 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import java.util.ArrayList;
 
@@ -91,17 +92,39 @@ public class Play implements Screen {
     ShaderProgram terrainShader;
 
 
+    public static int Width3DScreen;
+    public static int Height3DScreen;
+    public static int Width2DScreen;
+    public static int Height2DScreen;
+    public OrthographicCamera cam2D;
+    public Game game;
+    Stage fullScreenStage;
+    private FitViewport hudViewport;
+    private FitViewport dialogViewPort;
+    private InputMultiplexer inputMain;
+
     Play(Game g) {
+        game = g;
+        //PhysicsEngine
+        switch (CourseInput.gamePhysics) {
+            case "rk4":
+                engine = new RungeKutta();
+            case "euler":
+                engine = new Euler();
+            case "verlet":
+                engine = new Verlet();
+
+        }
+
 
         // Ball
         golfBall = modelBuilder.createSphere(1, 1, 1, 25, 25, new Material(ColorAttribute.createDiffuse(Color.WHITE)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
         ourGolfBall = new ModelInstance(golfBall, course.getObjects().get(0).position);
 
         // Hole
-        hole = modelBuilder.createCylinder((float) course.get_hole_tolerance() + 2, 30, (float) course.get_hole_tolerance() + 2, 25, GL20.GL_TRIANGLES, new Material(new BlendingAttribute((float) 0.5)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+        hole = modelBuilder.createSphere((float) course.get_hole_tolerance() + 2, 3, 1, 25, 25, new Material(new BlendingAttribute((float) 0.5)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
         Goal = new ModelInstance(hole, course.getObjects().get(1).position);
-        Goal.transform.rotate(1, 0, 0, 90);
-        Goal.transform.translate(course.getObjects().get(1).position);
+
 
         // Environment
         env = new Environment();
@@ -109,6 +132,16 @@ public class Play implements Screen {
         env.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, 0, -0.8f, 0));
 
         // Cam
+
+        Width2DScreen = 300;
+        Width3DScreen = Gdx.graphics.getWidth() - Width2DScreen;
+        Height2DScreen = Height3DScreen = Gdx.graphics.getHeight();
+        cam2D = new OrthographicCamera();
+        hudViewport = new FitViewport(Width2DScreen, Height2DScreen, cam2D);
+        cam2D.update();
+        dialogViewPort = new FitViewport(Width3DScreen, Height3DScreen, cam2D);
+        fullScreenStage = new Stage(dialogViewPort);
+
         cam = new PerspectiveCamera(90, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         cam.position.set(course.getObjects().get(0).position.x, course.getObjects().get(0).position.y - 10, course.getObjects().get(0).position.z + 10);
@@ -255,6 +288,10 @@ public class Play implements Screen {
 
         if (!TrackingCameraController.SHOOT)
             camController.update(delta);
+
+
+        if (PS.completed)
+            game.setScreen(new Win(game));
 
         // Show
         modelBatch.begin(cam);
