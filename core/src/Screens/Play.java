@@ -173,7 +173,8 @@ public class Play implements Screen {
 
         //put = new PuttingSimulator(course,PS);
 
-        bot1 = new GolfBot(course, PS, course.getHeightFun(), 20, 500, 0.5);
+        bot1 = new GolfBot(course, PS, engine, 500, 0.5);
+        //PS.takeShot(new Vector2D(1.1909131860485525, 6.872457137166267));
 
     }
 
@@ -315,14 +316,14 @@ public class Play implements Screen {
         modelBatch.render(instances, env);
         modelBatch.end();
 
-
+/*
         if (put != null) {
             //////////////////////
             ///// TRY ////////////
             //////////////////////
             put.take_shot();
             //put.take_random_shot();
-        }
+        }*/
     }
 
 

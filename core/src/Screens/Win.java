@@ -16,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
+import static Screens.Play.PS;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 
@@ -76,6 +77,7 @@ public class Win implements Screen {
 
                     @Override
                     public void run() {
+                        PS.completed = false;
                         ((Game) Gdx.app.getApplicationListener()).setScreen(new Play(game));
                     }
                 })));

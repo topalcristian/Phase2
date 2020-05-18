@@ -40,7 +40,12 @@ public class World {
 
     public void takeShot(Vector2D v) {
         inMove = true;
+        this.course.getObjects().get(0).velocity.x = 0;
+        this.course.getObjects().get(0).velocity.y = 0;
+
         this.course.getObjects().get(0).velocity.add(v);
+        System.out.println(this.course.getObjects().get(0).velocity.x);
+        System.out.println(this.course.getObjects().get(0).velocity.y);
         justStarted = true;
         started = true;
     }

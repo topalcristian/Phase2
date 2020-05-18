@@ -1,5 +1,6 @@
 package AI;
 
+import Physics.PhysicsEngine;
 import Physics.Vector2D;
 import Physics.Vector3D;
 import Screens.TheCourse;
@@ -22,26 +23,26 @@ public class GolfBot {
     private TheCourse course;
     private long startTime;
 
-    public GolfBot(TheCourse course,World worldBall, String heightFun, double maxVelocity, int populationSize, double mutationRate)
-    {
-        testBall = new TestBall(heightFun,course);
+    public GolfBot(TheCourse course, World worldBall, PhysicsEngine engine, int populationSize, double mutationRate) {
+        testBall = new TestBall(course.getHeightFun(), course);
         this.populationSize = populationSize;
         this.mutationRate = mutationRate;
-
         this.start = course.get_start_position();
         this.goal = course.get_flag_position();
         this.winArea = course.get_hole_tolerance();
-        this.maxVelocity = maxVelocity;
+        this.maxVelocity = course.get_maximum_velocity();
         this.time_step = .1;
         hitCounter = 0;
         startTime = 0;
 
         IndividualHit solution = run();
 
-        Vector2D solutionShot = new Vector2D(solution.get_x(),solution.get_y());
+        Vector2D solutionShot = new Vector2D(solution.get_x(), solution.get_y());
+        System.out.println(solution.get_x());
+        System.out.println(solution.get_y());
         worldBall.takeShot(solutionShot);
 
-        System.out.println("Last shot x = " + solution.get_x() +" | y = "+ solution.get_y());
+        System.out.println("Last shot x = " + solution.get_x() + " | y = " + solution.get_y());
         System.out.println("Time: " + startTime);
         System.out.println("Fitness: " + getBestIndividual(hitPopulation).getFitness());
     }
