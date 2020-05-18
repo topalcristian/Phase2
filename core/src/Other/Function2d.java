@@ -9,4 +9,8 @@ public interface Function2d {
 
     Vector2D gradient(float x, float y);
 
+
+    double derivative_by_x(double x, double y);
+
+    double derivative_by_y(double x, double y);
 }

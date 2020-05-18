@@ -133,4 +133,18 @@ public class HeightSolver implements Function2d {
             }
         }.parse();
     }
+
+    private static final double approximate_limit = Math.pow(10, -10);
+
+    public double derivative_by_x(double x, double y) {
+        Vector2D vectorX = new Vector2D(x + approximate_limit, y);
+        Vector2D vector = new Vector2D(x, y);
+        return ((this.evaluate(vectorX) - this.evaluate(vector)) / approximate_limit);
+    }
+
+    public double derivative_by_y(double x, double y) {
+        Vector2D vectorY = new Vector2D(x, y + approximate_limit);
+        Vector2D vector = new Vector2D(x, y);
+        return ((this.evaluate(vectorY) - this.evaluate(vector)) / approximate_limit);
+    }
 }

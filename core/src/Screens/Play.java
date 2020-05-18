@@ -1,5 +1,9 @@
 package Screens;
 
+import AI.GolfBot;
+import AI.IndividualHit;
+import AI.PuttingSimulator;
+import AI.TestBall;
 import Other.TrackingCameraController;
 import Physics.*;
 import com.badlogic.gdx.Game;
@@ -92,6 +96,13 @@ public class Play implements Screen {
     ShaderProgram terrainShader;
 
 
+    ////////////////////////// FOR THE BOT /////////////////////////////
+    private TestBall testBall;
+    private PuttingSimulator put;
+    private GolfBot bot1;
+    private IndividualHit hit;
+    ////////////////////////////////////////////////////////////////////
+
     public static int Width3DScreen;
     public static int Height3DScreen;
     public static int Width2DScreen;
@@ -158,6 +169,11 @@ public class Play implements Screen {
         instances.add(ourGolfBall);
         instances.add(Goal);
 
+        ///////////////////////// FOR THE BOT ///////////////////////////////////////
+
+        //put = new PuttingSimulator(course,PS);
+
+        bot1 = new GolfBot(course, PS, course.getHeightFun(), 20, 500, 0.5);
 
     }
 
@@ -298,6 +314,15 @@ public class Play implements Screen {
         instances.get(0).transform.setTranslation(course.getObjects().get(0).position);
         modelBatch.render(instances, env);
         modelBatch.end();
+
+
+        if (put != null) {
+            //////////////////////
+            ///// TRY ////////////
+            //////////////////////
+            put.take_shot();
+            //put.take_random_shot();
+        }
     }
 
 

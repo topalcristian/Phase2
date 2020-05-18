@@ -2,28 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00f4ce15-ce36-431e-8c12-7f407d8ad4c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/CourseInput$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/CourseInput$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/CourseInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/CourseInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Play.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Play.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/TheCourse.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/TheCourse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/World.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/GolfBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/GolfBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/HeapSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/HeightSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/HeightSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/IndividualHit.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/IndividualHit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/Play.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/PuttingBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/PuttingBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/PuttingSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/PuttingSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/TestBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/TestBall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/TheCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/TheCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/AI/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/Other/Function2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Other/Function2d.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/Other/HeightSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Other/HeightSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/Screens/CourseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/CourseInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/Physics/Euler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Physics/Euler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/Screens/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/Play.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/Screens/TheCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/TheCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course.txt" beforeDir="false" afterPath="$PROJECT_DIR$/course.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,13 +58,16 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZGQlhxVHbg8mF7snZUjO4yeGNj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Project2-2" />
@@ -83,11 +79,10 @@
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Univer\Code\Project1-2\Try2\core\src\Physics" />
-      <recent name="D:\Univer\Code\Project1-2\Try2\core\src" />
-      <recent name="D:\Univer\Code\Project1-2\Try2\core\assets" />
-      <recent name="D:\Univer\Code\Project1-2\Try2\core\assets\font" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Physics" />
+      <recent name="screens" />
+      <recent name="com.mygdx.game" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Univer\Code\Project1-2\Try2\core\src\Other" />
@@ -97,10 +92,12 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.mygdx.game.screens" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Physics" />
-      <recent name="screens" />
-      <recent name="com.mygdx.game" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\src\AI" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\src\Physics" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\src" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\assets" />
+      <recent name="D:\Univer\Code\Project1-2\Try2\core\assets\font" />
     </key>
   </component>
   <component name="RunManager" selected="Application.DesktopLauncher (1)">
@@ -230,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589748822875</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="All Working">
+      <created>1589791948855</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589791948855</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -253,6 +257,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="All Working" />
     <option name="LAST_COMMIT_MESSAGE" value="All Working" />
@@ -297,10 +302,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="539" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587738748338" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587461437102">
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589796092142">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587461437102" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589796092142" />
     <state x="715" y="224" key="#xdebugger.evaluate" timestamp="1588514674941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -309,10 +314,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1586861542189" />
-    <state x="1044" y="119" key="CommitChangelistDialog2" timestamp="1589791917677">
+    <state x="1044" y="119" key="CommitChangelistDialog2" timestamp="1589791946238">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1044" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589791917677" />
+    <state x="1044" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589791946238" />
     <state x="740" y="262" key="FileChooserDialogImpl" timestamp="1589373375023">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -325,22 +330,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1322" y="418" width="260" height="211" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587462683955" />
-    <state width="1877" height="185" key="GridCell.Tab.0.bottom" timestamp="1589791875154">
+    <state width="1877" height="185" key="GridCell.Tab.0.bottom" timestamp="1589796210466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589791875154" />
-    <state width="1877" height="185" key="GridCell.Tab.0.center" timestamp="1589791875154">
+    <state width="1877" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589796210466" />
+    <state width="1877" height="185" key="GridCell.Tab.0.center" timestamp="1589796210466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589791875154" />
-    <state width="1877" height="185" key="GridCell.Tab.0.left" timestamp="1589791875154">
+    <state width="1877" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589796210466" />
+    <state width="1877" height="185" key="GridCell.Tab.0.left" timestamp="1589796210466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589791875154" />
-    <state width="1877" height="185" key="GridCell.Tab.0.right" timestamp="1589791875154">
+    <state width="1877" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589796210466" />
+    <state width="1877" height="185" key="GridCell.Tab.0.right" timestamp="1589796210466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589791875154" />
+    <state width="1877" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589796210466" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588629021031">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -365,18 +370,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="232" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589029000846" />
-    <state x="922" y="254" key="Vcs.Push.Dialog.v2" timestamp="1589748853407">
+    <state x="922" y="254" key="Vcs.Push.Dialog.v2" timestamp="1589791952905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="922" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589748853407" />
+    <state x="922" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589791952905" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589373327412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589373327412" />
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589742726612">
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589795387627">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589742726612" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589795387627" />
     <state x="682" y="312" key="git4idea.merge.GitPullDialog" timestamp="1589373221419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
