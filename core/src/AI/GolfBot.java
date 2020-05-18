@@ -1,11 +1,12 @@
 package AI;
 
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 import Physics.Vector2D;
 import Physics.Vector3D;
-import Screens.World;
 import Screens.TheCourse;
+import Screens.World;
+
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class GolfBot {
     private Vector2D start;

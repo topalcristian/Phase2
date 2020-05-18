@@ -41,15 +41,13 @@ package AI;
  * @version 1.3 12 May 2020
  */
 public class HeapSort {
-    public static void sort(IndividualHit i[])
-    {
+    public static void sort(IndividualHit[] i) {
         int N = i.length;
 
-        for (int k = N/2; k > 0; k--)
+        for (int k = N / 2; k > 0; k--)
             downheap(i, k, N);
 
-        do
-        {
+        do {
             IndividualHit T = i[0];
             i[0] = i[N - 1];
             i[N - 1] = T;
@@ -60,12 +58,10 @@ public class HeapSort {
         while (N > 1);
     }
 
-    private static void downheap(IndividualHit i[], int k, int N)
-    {
+    private static void downheap(IndividualHit[] i, int k, int N) {
         IndividualHit T = i[k - 1];
 
-        while (k <= N/2)
-        {
+        while (k <= N / 2) {
             int j = k + k;
             if ((j < N) && (i[j - 1].getFitness() < i[j].getFitness()))
                 j++;
@@ -73,8 +69,7 @@ public class HeapSort {
             if (T.getFitness() >= i[j - 1].getFitness())
                 break;
 
-            else
-            {
+            else {
                 i[k - 1] = i[j - 1];
                 k = j;
             }
