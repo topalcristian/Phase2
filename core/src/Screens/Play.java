@@ -78,7 +78,7 @@ public class Play implements Screen {
 
 
     public ModelBatch modelBatch = new ModelBatch();
-    public static TheCourse course = new TheCourse("");
+    public static TheCourse course = new TheCourse();
     public Environment env;
     public ModelBuilder modelBuilder = new ModelBuilder();
     public static PhysicsEngine engine = new Verlet();

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TheCourse {
-
+    public static int activeI = 1;
     private double gravity;
     private double mass;
     private double friction;
@@ -23,13 +23,12 @@ public class TheCourse {
     private double[][] obstacle;
     public List<GameObject> objects = new ArrayList<>();
 
-    public TheCourse(String courseName) {
+    public TheCourse() {
 //        game = g;
 
-        if (courseName.equals(""))
-            courseName = "course1.txt";
+
         try {
-            File myObj = new File(courseName);
+            File myObj = new File("course" + activeI + ".txt");
             Scanner myReader = new Scanner(myObj);
             gravity = Double.parseDouble(myReader.nextLine());
             mass = Double.parseDouble(myReader.nextLine());
@@ -71,8 +70,22 @@ public class TheCourse {
     }
 
 
+    public static int getCourseAmount() {
+        int amount = 0;
+        for (int i = 0; i < 200; i++) {
+            File tmpDir = new File("course" + i + ".txt");
+            if (tmpDir.exists()) amount++;
+            else return amount;
+        }
+        return amount;
+    }
+
     public Function2d get_height() {
         return new HeightSolver(heightFun);
+    }
+
+    public String getHeightFun() {
+        return heightFun;
     }
 
     public double heightEval(double x, double y) {

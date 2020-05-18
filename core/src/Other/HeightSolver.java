@@ -5,7 +5,7 @@ import Physics.Vector2D;
 public class HeightSolver implements Function2d {
 
     double x, y;
-    String height;
+    public String height;
 
     public HeightSolver(String heightFun) {
         this.height = heightFun;

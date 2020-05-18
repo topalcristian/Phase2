@@ -4,9 +4,13 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import java.io.File;
@@ -30,6 +34,7 @@ public class CourseInput implements Screen {
     private TextButton buttonPhysicsH;
     private TextButton buttonPhysicsRK;
     private TextButton buttonPhysicsE;
+    private SelectBox<String> selectBox;
 
     private Game game;
     private Stage stage;
@@ -41,13 +46,23 @@ public class CourseInput implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-        final TextButton btnCreate = new TextButton("Click", skin);
-        btnCreate.setPosition(Gdx.graphics.getWidth() / 2 - 125, 250);
+        final TextButton btnCreate = new TextButton("Create", skin);
+        btnCreate.setPosition(Gdx.graphics.getWidth() / 2 - 300, 250);
         btnCreate.setSize(250, 60);
         btnCreate.addListener(new ClickListener() {
             @Override
             public void touchUp(InputEvent e, float x, float y, int point, int button) {
-                btnCreateClicked();
+                btnCreateClicked(TheCourse.getCourseAmount() + 1);
+            }
+        });
+
+        final TextButton btnSave = new TextButton("Save", skin);
+        btnSave.setPosition(Gdx.graphics.getWidth() / 2, 250);
+        btnSave.setSize(250, 60);
+        btnSave.addListener(new ClickListener() {
+            @Override
+            public void touchUp(InputEvent e, float x, float y, int point, int button) {
+                btnCreateClicked(selectBox.getSelectedIndex());
             }
         });
 
@@ -156,13 +171,47 @@ public class CourseInput implements Screen {
         obstacleField.setMessageText("obstacle x y x y x y");
         stage.addActor(obstacleField);
 */
+
+
+        /*
+            Set up the drop-down menu (select box).
+         */
+
+        selectBox = new SelectBox<String>(skin);
+        selectBox.setPosition(300, Gdx.graphics.getHeight() * 0.9f - 130);
+        Vector2 selectBoxSize = new Vector2(200, 50);
+        selectBox.setSize(selectBoxSize.x, selectBoxSize.y);
+
+        String[] boxItems = new String[TheCourse.getCourseAmount()];
+        for (int i = 0; i < TheCourse.getCourseAmount(); i++) {
+            boxItems[i] = "Course " + i;
+        }
+        selectBox.setItems(boxItems);
+
+        /*
+            Listener that triggers action if different option is chosen in select box.
+         */
+        selectBox.addListener(new EventListener() {
+                                  @Override
+                                  public boolean handle(Event event) {
+                                      if (event instanceof ChangeListener.ChangeEvent) {
+                                          updateCourseInfo();
+                                      }
+                                      return true;
+                                  }
+                              }
+        );
+        stage.addActor(btnSave);
+        stage.addActor(selectBox);
         stage.addActor(btnCreate);
     }
 
 
-    public void btnCreateClicked() {
+    public void btnCreateClicked(int i) {
         try {
-            int i = 1;
+            TheCourse.activeI = i;
+
+
             File tmpDir = new File("course" + i + ".txt");
             FileWriter myWriter = new FileWriter(tmpDir);
 
@@ -198,9 +247,9 @@ public class CourseInput implements Screen {
                 myWriter.write(heightField.getText());
             else
                 myWriter.write("-0.01*x + 0.003*x^2 + 0.04 * y" + "\n");
-
-
             myWriter.close();
+
+
             dispose();
             game.setScreen(new Play(game));
 
@@ -209,6 +258,20 @@ public class CourseInput implements Screen {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+
+    public void updateCourseInfo() {
+        TheCourse.activeI = selectBox.getSelectedIndex();
+        TheCourse updater = new TheCourse();
+        gravityField.setText(Double.toString(updater.getGravity()));
+        massField.setText(Double.toString(updater.getMass()));
+        frictionField.setText(Double.toString(updater.getFriction()));
+        iniSpeedField.setText(Double.toString(updater.get_maximum_velocity()));
+        winAreaField.setText(Double.toString(updater.get_hole_tolerance()));
+        startField.setText((updater.get_start_position().x) + " " + updater.get_start_position().y);
+        goalField.setText((updater.get_flag_position().x) + " " + updater.get_flag_position().y);
+        heightField.setText(updater.getHeightFun());
     }
 
 
