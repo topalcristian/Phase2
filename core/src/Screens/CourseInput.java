@@ -28,14 +28,14 @@ public class CourseInput implements Screen {
     private TextField goalField;
     private TextField heightField;
     private TextField obstacleField;
-    public static String gamePhysics = "rk4";
+    private TextButton botButtton;
 
     private TextButton buttonPhysicsV;
     private TextButton buttonPhysicsH;
     private TextButton buttonPhysicsRK;
     private TextButton buttonPhysicsE;
     private SelectBox<String> selectBox;
-    private TextButton botButtton;
+
     private Game game;
     private Stage stage;
 
@@ -71,7 +71,7 @@ public class CourseInput implements Screen {
         buttonPhysicsV.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                gamePhysics = "verlet";
+                Play.gamePhysics = "verlet";
             }
         });
 /*
@@ -87,7 +87,7 @@ public class CourseInput implements Screen {
         buttonPhysicsRK.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                gamePhysics = "rk4";
+                Play.gamePhysics = "rk4";
             }
         });
 
@@ -95,7 +95,7 @@ public class CourseInput implements Screen {
         buttonPhysicsE.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                gamePhysics = "euler";
+                Play.gamePhysics = "euler";
             }
         });
 
@@ -171,8 +171,18 @@ public class CourseInput implements Screen {
         obstacleField.setMessageText("obstacle x y x y x y");
         stage.addActor(obstacleField);
 */
-
-
+        //Bot button
+        Skin skin2 = new Skin(Gdx.files.internal("uiskin.json"));
+        botButtton = new TextButton("Bot", skin2, "toggle");
+        botButtton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Play.Bot = true;
+            }
+        });
+        botButtton.setSize(100, 50);
+        botButtton.setPosition(Gdx.graphics.getWidth() / 2 - 50, Gdx.graphics.getHeight() - 300);
+        stage.addActor(botButtton);
         /*
             Set up the drop-down menu (select box).
          */
@@ -191,6 +201,7 @@ public class CourseInput implements Screen {
         /*
             Listener that triggers action if different option is chosen in select box.
          */
+        updateCourseInfo();
         selectBox.addListener(new EventListener() {
                                   @Override
                                   public boolean handle(Event event) {
@@ -203,16 +214,6 @@ public class CourseInput implements Screen {
         );
 
 
-        botButtton = new TextButton("Bot", skin, "toggle");
-        botButtton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Play.Bot = true;
-            }
-        });
-        botButtton.setSize(100, 50);
-        botButtton.setPosition(Gdx.graphics.getWidth() / 2 - 50, Gdx.graphics.getHeight() - 300);
-        stage.addActor(botButtton);
         stage.addActor(btnSave);
         stage.addActor(selectBox);
         stage.addActor(btnCreate);

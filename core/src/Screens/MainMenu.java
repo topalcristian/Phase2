@@ -9,21 +9,22 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 public class MainMenu implements Screen {
-
+    private TextButton buttonPhysicsV;
+    private TextButton buttonPhysicsH;
+    private TextButton buttonPhysicsRK;
+    private TextButton buttonPhysicsE;
     private Stage stage;
     private Skin skin;
     private Table table;
     private Game game;
+    private TextButton botButtton;
 
     public MainMenu(Game game) {
         this.game = game;
@@ -62,6 +63,70 @@ public class MainMenu implements Screen {
         // creating heading
         Label heading = new Label("GOLF", skin, "big");
         heading.setFontScale(2);
+
+
+        //Bot button
+        Skin skin2 = new Skin(Gdx.files.internal("uiskin.json"));
+        botButtton = new TextButton("Bot", skin2, "toggle");
+        botButtton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Play.Bot = true;
+            }
+        });
+        botButtton.setSize(100, 50);
+        botButtton.setPosition(50, 50);
+
+
+        buttonPhysicsV = new TextButton("Verlet", skin2, "toggle");
+        buttonPhysicsV.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Play.gamePhysics = "verlet";
+            }
+        });
+/*
+        buttonPhysicsH = new TextButton("Heun's3", skin,"toggle");
+        buttonPhysicsH.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                new Heuns3();
+            }
+        });
+*/
+        buttonPhysicsRK = new TextButton("RK4", skin2, "toggle");
+        buttonPhysicsRK.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Play.gamePhysics = "rk4";
+            }
+        });
+
+        buttonPhysicsE = new TextButton("Euler", skin2, "toggle");
+        buttonPhysicsE.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Play.gamePhysics = "euler";
+            }
+        });
+
+        ButtonGroup buttonGroupPhysics = new ButtonGroup(buttonPhysicsE, buttonPhysicsV, buttonPhysicsRK);
+//next set the max and min amount to be checked
+        buttonGroupPhysics.setMaxCheckCount(1);
+        buttonGroupPhysics.setMinCheckCount(1);
+        buttonGroupPhysics.setChecked("RK4");
+
+
+        Table tablePhysics = new Table();
+        tablePhysics.setWidth(stage.getWidth());
+        //  tableDimensions.align(Align.center|Align.top);
+        //tablePhysics.setPosition(0, Gdx.graphics.getHeight() - 200);
+        //tablePhysics.row();
+        tablePhysics.add(buttonPhysicsE).size(100, 50);
+        tablePhysics.add(buttonPhysicsV).size(100, 50);
+        tablePhysics.add(buttonPhysicsRK).size(100, 50);
+        //stage.addActor(tablePhysics);
+
 
         // creating buttons
         TextButton buttonPlay = new TextButton("PLAY", skin, "big");
@@ -110,6 +175,8 @@ public class MainMenu implements Screen {
         table.add(heading).spaceBottom(100).row();
         table.add(buttonPlay).spaceBottom(15).row();
         table.add(buttonSettings).spaceBottom(15).row();
+        table.add(botButtton).spaceBottom(15).row();
+        table.add(tablePhysics).spaceBottom(15).row();
         table.add(buttonExit);
 
         stage.addActor(table);

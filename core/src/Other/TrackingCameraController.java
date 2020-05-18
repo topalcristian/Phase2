@@ -20,7 +20,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.math.collision.Ray;
 
-import static Screens.Play.PS;
+import static Screens.Play.theSimulation;
 
 
 public class TrackingCameraController implements InputProcessor {
@@ -31,7 +31,7 @@ public class TrackingCameraController implements InputProcessor {
     float minCameraDistance = 0.1f;
     Vector3 dirShot;
     Vector2 delta;
-    double maxVelo = PS.course.get_maximum_velocity();
+    double maxVelo = theSimulation.course.get_maximum_velocity();
     double ratioX = 1000 / maxVelo;
     double ratioY = 600 / maxVelo;
     ModelBuilder arrowBuilder = new ModelBuilder();
@@ -48,6 +48,7 @@ public class TrackingCameraController implements InputProcessor {
 
 
     public TrackingCameraController(Camera cam) {
+
         this.cam = cam;
         trackedPosition = new Vector3();
         targetPosition = cam.position.cpy();
@@ -72,8 +73,7 @@ public class TrackingCameraController implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-
-        if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) || PS.isInMove()) {
+        if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) || theSimulation.isInMove()) {
             return true;
         }
         dirShot = getObject(screenX, screenY);
@@ -109,7 +109,7 @@ public class TrackingCameraController implements InputProcessor {
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        if (SHOOT && Play.instances.size() == 4 && (!PS.isInMove())) {
+        if (SHOOT && Play.instances.size() == 4 && (!theSimulation.isInMove())) {
             Play.instances.remove(3);
             //cam.lookAt(dirShot);
 
@@ -121,7 +121,7 @@ public class TrackingCameraController implements InputProcessor {
             if (delta.y > maxVelo) delta.y = (float) (PS.course.get_maximum_velocity());
             if (delta.y < -maxVelo) delta.y = (float) (-PS.course.get_maximum_velocity());
             */
-            PS.takeShot(new Vector2D(-delta.x / ratioX, delta.y / ratioY));
+            theSimulation.takeShot(new Vector2D(-delta.x / ratioX, delta.y / ratioY));
             System.out.println(-delta.x / ratioX);
             System.out.println(delta.y / ratioY);
         }
@@ -133,7 +133,7 @@ public class TrackingCameraController implements InputProcessor {
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) || (PS.isInMove())) {
+        if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) || (theSimulation.isInMove())) {
             tmpV1.set(cam.direction).crs(cam.up).y = 0f;
 
             //cam.rotateAround(trackedPosition, Vector3.X, mouseLastY - screenY);

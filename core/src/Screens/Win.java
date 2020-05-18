@@ -9,14 +9,13 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
-import static Screens.Play.PS;
+import static Screens.Play.theSimulation;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 
@@ -64,11 +63,9 @@ public class Win implements Screen {
         table.setFillParent(true);
         table.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("youwin.jpg"))));
         // creating heading
-        Label heading = new Label("Win", skin, "big");
-        heading.setFontScale(2);
 
         // creating buttons
-        TextButton buttonPlay = new TextButton("PLAY AGAIN", skin, "big");
+        TextButton buttonPlay = new TextButton("PLAY AGAIN", skin);
         buttonPlay.addListener(new ClickListener() {
 
             @Override
@@ -77,7 +74,7 @@ public class Win implements Screen {
 
                     @Override
                     public void run() {
-                        PS.completed = false;
+                        theSimulation.completed = false;
                         ((Game) Gdx.app.getApplicationListener()).setScreen(new Play(game));
                     }
                 })));
@@ -101,7 +98,7 @@ public class Win implements Screen {
         });
         buttonSettings.pad(15);
 
-        TextButton buttonExit = new TextButton("EXIT", skin, "big");
+        TextButton buttonExit = new TextButton("EXIT", skin);
         buttonExit.addListener(new ClickListener() {
 
             @Override
@@ -116,8 +113,8 @@ public class Win implements Screen {
         buttonExit.pad(15);
 
         // putting stuff together
-        table.add(heading).spaceBottom(100).row();
-        table.add(buttonPlay).spaceBottom(15).row();
+
+        table.add(buttonPlay).spaceBottom(200).row();
         table.add(buttonSettings).spaceBottom(15).row();
         table.add(buttonExit);
 

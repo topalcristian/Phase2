@@ -13,19 +13,55 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Other/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Other/GameObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Other/TrackingCameraController.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Other/TrackingCameraController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/CourseInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/CourseInput.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/MainMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Play.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Play.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/TheCourse.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/TheCourse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$2$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/Win.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/Screens/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/Screens/World.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/Other/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Other/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/Other/TrackingCameraController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Other/TrackingCameraController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/Screens/CourseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/CourseInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/Screens/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/Screens/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/Play.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/Screens/TheCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/TheCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/Screens/Win.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/Win.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/Screens/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Screens/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/course0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/course2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/Verlet_Physics_Engine.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/Ball.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/Force.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/Function3D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/GolfBot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/HeapSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/IndividualHit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/Vector2D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/Vector3D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/out/production/Verlet_Physics_Engine/main_class.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/Ball.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/Force.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/Function3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/GolfBot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/HeapSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/IndividualHit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/Vector2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/Vector3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive-download-20200512T111917Z-001/src/main_class.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589801274727</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="All Working">
+      <created>1589809814890</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589809814890</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -344,10 +387,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1586861542189" />
-    <state x="1044" y="119" key="CommitChangelistDialog2" timestamp="1589801272863">
+    <state x="1044" y="119" key="CommitChangelistDialog2" timestamp="1589809812855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1044" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589801272863" />
+    <state x="1044" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589809812855" />
     <state x="740" y="262" key="FileChooserDialogImpl" timestamp="1589373375023">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -360,38 +403,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1322" y="418" width="260" height="211" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587462683955" />
-    <state width="1877" height="185" key="GridCell.Tab.0.bottom" timestamp="1589809801583">
+    <state width="1877" height="185" key="GridCell.Tab.0.bottom" timestamp="1589825594271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589809801583" />
-    <state width="1877" height="185" key="GridCell.Tab.0.center" timestamp="1589809801583">
+    <state width="1877" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589825594271" />
+    <state width="1877" height="185" key="GridCell.Tab.0.center" timestamp="1589825594271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589809801583" />
-    <state width="1877" height="185" key="GridCell.Tab.0.left" timestamp="1589809801583">
+    <state width="1877" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589825594271" />
+    <state width="1877" height="185" key="GridCell.Tab.0.left" timestamp="1589825594271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589809801583" />
-    <state width="1877" height="185" key="GridCell.Tab.0.right" timestamp="1589809801583">
+    <state width="1877" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589825594271" />
+    <state width="1877" height="185" key="GridCell.Tab.0.right" timestamp="1589825594271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589809801583" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1589807608345">
+    <state width="1877" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589825594271" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1589815202403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589807608345" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1589807608345">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589815202403" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1589815202403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589807608345" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1589807608345">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589815202403" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1589815202403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589807608345" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1589807608345">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589815202403" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1589815202403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589807608345" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589815202403" />
     <state x="672" y="237" key="MultipleFileMergeDialog" timestamp="1589373193069">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -400,10 +443,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="232" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589029000846" />
-    <state x="922" y="254" key="Vcs.Push.Dialog.v2" timestamp="1589801276505">
+    <state x="922" y="254" key="Vcs.Push.Dialog.v2" timestamp="1589809818569">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="922" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589801276505" />
+    <state x="922" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589809818569" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589804828987">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -412,10 +455,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589795387627" />
-    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1589809203460">
+    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1589824482423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589809203460" />
+    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589824482423" />
     <state x="682" y="312" key="git4idea.merge.GitPullDialog" timestamp="1589373221419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -424,10 +467,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="702" y="140" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589751230261" />
-    <state x="1096" y="244" key="run.anything.popup" timestamp="1589791367324">
+    <state x="1096" y="244" key="run.anything.popup" timestamp="1589816053573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1096" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589791367324" />
+    <state x="1096" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589816053573" />
     <state x="1091" y="107" width="672" height="678" key="search.everywhere.popup" timestamp="1589791081082">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -444,6 +487,7 @@
         <watch expression="((World)this).course" custom="Screens.World" />
         <watch expression="inMove" />
         <watch expression="((World)this).game" custom="Screens.World" />
+        <watch expression="solutionShot" />
       </configuration>
     </watches-manager>
   </component>

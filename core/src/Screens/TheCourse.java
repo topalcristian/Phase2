@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TheCourse {
-    public static int activeI = 1;
+    public static int activeI = 0;
     private double gravity;
     private double mass;
     private double friction;

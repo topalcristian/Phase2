@@ -11,7 +11,7 @@ public class GameObject {
     public Vector2D acceleration = new Vector2D(0, 0);
     public Vector3 old_position = new Vector3(0, 0, 0);
     public Vector2D old_acceleration_vector = new Vector2D(0, 0);
-    public double mass = 0.1;
+
 
     public double velMagnitude() {
         return (Math.sqrt(velocity.x * velocity.x + velocity.y * velocity.y));

@@ -29,9 +29,11 @@ import java.util.ArrayList;
 
 
 public class Play implements Screen {
-
-    public static int borderSize = 75;
+    public static boolean timePassed = false;
+    public static int borderSize = 50;
+    public static String gamePhysics = "rk4";
     public static boolean Bot = false;
+    public static TheCourse course;
     final float terrainStepSize = 1;
     final int terrainWidth = 20;
     final int terrainLength = 15;
@@ -87,11 +89,11 @@ public class Play implements Screen {
 
     public SpriteBatch batch = new SpriteBatch();
     public ModelBatch modelBatch = new ModelBatch();
-    public static TheCourse course = new TheCourse();
+    public static World theSimulation;
     public Environment env;
     public ModelBuilder modelBuilder = new ModelBuilder();
     public static PhysicsEngine engine = new Verlet();
-    public static World PS = new World(course, engine);
+    int time1 = 0;
     public TrackingCameraController camController;
     public Model golfBall;
     public Model hole;
@@ -103,6 +105,7 @@ public class Play implements Screen {
     Stage UIStage;
     Skin skin;
     private Label turnCount;
+    private Label loading;
     ////////////////////////// FOR THE BOT /////////////////////////////
     private TestBall testBall;
     private PuttingSimulator put;
@@ -122,9 +125,11 @@ public class Play implements Screen {
     private InputMultiplexer inputMain;
 
     Play(Game g) {
+        course = new TheCourse();
+        theSimulation = new World(course, engine);
         game = g;
         //PhysicsEngine
-        switch (CourseInput.gamePhysics) {
+        switch (gamePhysics) {
             case "rk4":
                 engine = new RungeKutta();
             case "euler":
@@ -133,7 +138,7 @@ public class Play implements Screen {
                 engine = new Verlet();
 
         }
-
+        instances.clear();
 
         // Ball
         golfBall = modelBuilder.createSphere(1, 1, 1, 25, 25, new Material(ColorAttribute.createDiffuse(Color.WHITE)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
@@ -176,13 +181,25 @@ public class Play implements Screen {
         Gdx.input.setInputProcessor(camController);
 
         //UI Stage
-        UIStage = new Stage(hudViewport, batch);
+        UIStage = new Stage(dialogViewPort, batch);
         UIStage.getViewport().setScreenBounds(Width3DScreen, 0, Width2DScreen - 1, Height2DScreen - 1);
         UIStage.getViewport().apply();
         UIStage.setDebugAll(false);
         skin = new Skin(Gdx.files.internal("menuSkin.json"), new TextureAtlas("atlas.pack"));
-        turnCount = new Label("Turns: ", skin);
+
+        //Labels
+        turnCount = new Label("Turns: " + theSimulation.shots, skin);
+        turnCount.setSize(30, 20);
+        turnCount.setPosition(10, Height2DScreen - 200);
+        turnCount.setColor(Color.BROWN);
         UIStage.addActor(turnCount);
+
+        loading = new Label("", skin);
+        loading.setSize(30, 20);
+        loading.setPosition(10, Height2DScreen - 95);
+        loading.setColor(Color.BROWN);
+        UIStage.addActor(loading);
+
         //Shader
         terrainShader = new ShaderProgram(VERT_SHADER, FRAG_SHADER);
         terrain = new Mesh(true, MAX_VERTS, 0, new VertexAttribute(VertexAttributes.Usage.Position, POSITION_COMPONENTS, "a_position"), new VertexAttribute(VertexAttributes.Usage.ColorPacked, 4, "a_color"));
@@ -194,8 +211,9 @@ public class Play implements Screen {
 
         //put = new PuttingSimulator(course,PS);
         if (Bot)
-            bot1 = new GolfBot(course, PS, engine, 500, 0.5);
-        //PS.takeShot(new Vector2D(1.1909131860485525, 6.872457137166267));
+            bot1 = new GolfBot(course, theSimulation, engine, 500, 0.5);
+
+        //theSimulation.takeShot(new Vector2D(-5.157253569297628/1.66,5.149101993602694/1.66));
 
 
     }
@@ -310,6 +328,11 @@ public class Play implements Screen {
     @Override
     public void render(float delta) {
 
+
+        time1++;
+        if (time1 > 100)
+            timePassed = true;
+
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -321,16 +344,16 @@ public class Play implements Screen {
         //this will render the remaining triangles
         flush();
 
-
-        PS.step(delta);
+        updateText();
+        if (timePassed)
+            theSimulation.step(delta);
         camController.setTrackedVector(course.getObjects().get(0).position);
 
         if (!TrackingCameraController.SHOOT)
             camController.update(delta);
 
 
-        if (PS.completed) {
-            dispose();
+        if (theSimulation.completed) {
             game.setScreen(new Win(game));
 
         }
@@ -352,6 +375,14 @@ public class Play implements Screen {
             put.take_shot();
             //put.take_random_shot();
         }*/
+    }
+
+    private void updateText() {
+        if (theSimulation.isInMove())
+            loading.setText("In Shot\nvelx:" + course.objects.get(0).velocity.get_x() + "\nvely:" + course.objects.get(0).velocity.get_y() + "\naccx:" + course.objects.get(0).acceleration.get_x() + "\naccy:" + course.objects.get(0).acceleration.get_y());
+        else
+            loading.setText("Press the ball and direct the arrow\nvelx:" + course.objects.get(0).velocity.get_x() + "\nvely:" + course.objects.get(0).velocity.get_y() + "\naccx:" + course.objects.get(0).acceleration.get_x() + "\naccy:" + course.objects.get(0).acceleration.get_y());
+        turnCount.setText("Turns: " + theSimulation.shots);
     }
 
 
