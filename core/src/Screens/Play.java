@@ -11,6 +11,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
@@ -18,6 +20,8 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 public class Play implements Screen {
 
     public static int borderSize = 75;
+    public static boolean Bot = false;
     final float terrainStepSize = 1;
     final int terrainWidth = 20;
     final int terrainLength = 15;
@@ -80,7 +85,7 @@ public class Play implements Screen {
     public PerspectiveCamera cam;
     public static ArrayList<ModelInstance> instances = new ArrayList<>();
 
-
+    public SpriteBatch batch = new SpriteBatch();
     public ModelBatch modelBatch = new ModelBatch();
     public static TheCourse course = new TheCourse();
     public Environment env;
@@ -90,12 +95,14 @@ public class Play implements Screen {
     public TrackingCameraController camController;
     public Model golfBall;
     public Model hole;
+    public Model sky;
     //public CameraInputController trackingCameraController;
-    public ModelInstance ourGolfBall, Goal;
+    public ModelInstance ourGolfBall, goal, skybox;
     Mesh terrain;
     ShaderProgram terrainShader;
-
-
+    Stage UIStage;
+    Skin skin;
+    private Label turnCount;
     ////////////////////////// FOR THE BOT /////////////////////////////
     private TestBall testBall;
     private PuttingSimulator put;
@@ -133,8 +140,12 @@ public class Play implements Screen {
         ourGolfBall = new ModelInstance(golfBall, course.getObjects().get(0).position);
 
         // Hole
-        hole = modelBuilder.createSphere((float) course.get_hole_tolerance() + 2, 3, 1, 25, 25, new Material(new BlendingAttribute((float) 0.5)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
-        Goal = new ModelInstance(hole, course.getObjects().get(1).position);
+        hole = modelBuilder.createSphere((float) course.get_hole_tolerance() + 2, 3, 1, 25, 25, new Material(new BlendingAttribute((float) 0.8), new ColorAttribute(1, Color.BLACK)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+        goal = new ModelInstance(hole, course.getObjects().get(1).position);
+
+        //Skybox
+        sky = modelBuilder.createSphere(1000, 1000, 1000, 25, 25, new Material(new BlendingAttribute((float) 0.8), new ColorAttribute(1, Color.BLUE)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+        skybox = new ModelInstance(sky, course.getObjects().get(0).position);
 
 
         // Environment
@@ -164,17 +175,28 @@ public class Play implements Screen {
         camController.setTrackedVector(course.getObjects().get(0).position);
         Gdx.input.setInputProcessor(camController);
 
+        //UI Stage
+        UIStage = new Stage(hudViewport, batch);
+        UIStage.getViewport().setScreenBounds(Width3DScreen, 0, Width2DScreen - 1, Height2DScreen - 1);
+        UIStage.getViewport().apply();
+        UIStage.setDebugAll(false);
+        skin = new Skin(Gdx.files.internal("menuSkin.json"), new TextureAtlas("atlas.pack"));
+        turnCount = new Label("Turns: ", skin);
+        UIStage.addActor(turnCount);
+        //Shader
         terrainShader = new ShaderProgram(VERT_SHADER, FRAG_SHADER);
         terrain = new Mesh(true, MAX_VERTS, 0, new VertexAttribute(VertexAttributes.Usage.Position, POSITION_COMPONENTS, "a_position"), new VertexAttribute(VertexAttributes.Usage.ColorPacked, 4, "a_color"));
         instances.add(ourGolfBall);
-        instances.add(Goal);
+        instances.add(goal);
+        instances.add(skybox);
 
         ///////////////////////// FOR THE BOT ///////////////////////////////////////
 
         //put = new PuttingSimulator(course,PS);
-
-        bot1 = new GolfBot(course, PS, engine, 500, 0.5);
+        if (Bot)
+            bot1 = new GolfBot(course, PS, engine, 500, 0.5);
         //PS.takeShot(new Vector2D(1.1909131860485525, 6.872457137166267));
+
 
     }
 
@@ -226,7 +248,7 @@ public class Play implements Screen {
             terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
         } else {
             terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x + 1, z));
-            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+            terrainVertices[terrainVertexIndex++] = Color.FOREST.toFloatBits();
         }
         //top left vertex
         terrainVertices[terrainVertexIndex++] = x;
@@ -236,7 +258,7 @@ public class Play implements Screen {
             terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
         } else {
             terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x, z + 1));
-            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+            terrainVertices[terrainVertexIndex++] = Color.FOREST.toFloatBits();
         }
         //top right vertex
         terrainVertices[terrainVertexIndex++] = x + 1;
@@ -246,7 +268,7 @@ public class Play implements Screen {
             terrainVertices[terrainVertexIndex++] = Color.BLUE.toFloatBits();
         } else {
             terrainVertices[terrainVertexIndex++] = (float) course.get_height().evaluate(new Vector2D(x + 1, z + 1));
-            terrainVertices[terrainVertexIndex++] = Color.GREEN.toFloatBits();
+            terrainVertices[terrainVertexIndex++] = Color.FOREST.toFloatBits();
         }
     }
 
@@ -307,15 +329,21 @@ public class Play implements Screen {
             camController.update(delta);
 
 
-        if (PS.completed)
+        if (PS.completed) {
+            dispose();
             game.setScreen(new Win(game));
 
+        }
         // Show
+        cam2D.update();
+
         modelBatch.begin(cam);
         instances.get(0).transform.setTranslation(course.getObjects().get(0).position);
+
         modelBatch.render(instances, env);
         modelBatch.end();
-
+        UIStage.draw();
+        UIStage.act();
 /*
         if (put != null) {
             //////////////////////
@@ -354,5 +382,8 @@ public class Play implements Screen {
 
     @Override
     public void dispose() {
+        modelBatch.dispose();
+        instances = null;
+
     }
 }

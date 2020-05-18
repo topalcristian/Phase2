@@ -35,7 +35,7 @@ public class CourseInput implements Screen {
     private TextButton buttonPhysicsRK;
     private TextButton buttonPhysicsE;
     private SelectBox<String> selectBox;
-
+    private TextButton botButtton;
     private Game game;
     private Stage stage;
 
@@ -201,6 +201,18 @@ public class CourseInput implements Screen {
                                   }
                               }
         );
+
+
+        botButtton = new TextButton("Bot", skin, "toggle");
+        botButtton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Play.Bot = true;
+            }
+        });
+        botButtton.setSize(100, 50);
+        botButtton.setPosition(Gdx.graphics.getWidth() / 2 - 50, Gdx.graphics.getHeight() - 300);
+        stage.addActor(botButtton);
         stage.addActor(btnSave);
         stage.addActor(selectBox);
         stage.addActor(btnCreate);

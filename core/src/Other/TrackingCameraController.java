@@ -109,8 +109,8 @@ public class TrackingCameraController implements InputProcessor {
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        if (SHOOT && Play.instances.size() == 3 && (!PS.isInMove())) {
-            Play.instances.remove(2);
+        if (SHOOT && Play.instances.size() == 4 && (!PS.isInMove())) {
+            Play.instances.remove(3);
             //cam.lookAt(dirShot);
 
 
@@ -144,8 +144,8 @@ public class TrackingCameraController implements InputProcessor {
             return true;
         }
         if (!SHOOT) return false;
-        if (Play.instances.size() == 3)
-            Play.instances.remove(2);
+        if (Play.instances.size() == 4)
+            Play.instances.remove(3);
         Vector2 newTouch = new Vector2(screenX, screenY);
         delta = newTouch.cpy().sub(lastTouch);
         _model = arrowBuilder.createArrow(dirShot.x + (delta.x / 50), dirShot.y - (delta.y / 50), dirShot.z, dirShot.x, dirShot.y, dirShot.z, 0.1f, 0.3f, 10, GL20.GL_TRIANGLES, new Material(ColorAttribute.createDiffuse(Color.DARK_GRAY)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
