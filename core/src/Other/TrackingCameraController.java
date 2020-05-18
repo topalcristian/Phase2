@@ -109,18 +109,10 @@ public class TrackingCameraController implements InputProcessor {
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        if (SHOOT && Play.instances.size() == 4 && (!theSimulation.isInMove())) {
-            Play.instances.remove(3);
-            //cam.lookAt(dirShot);
+        if (SHOOT && Play.instances.size() == 3 && (!theSimulation.isInMove())) {
+            Play.instances.remove(2);
 
 
-            System.out.println(delta.x);
-            System.out.println(delta.y);/*
-            if (delta.x > maxVelo) delta.x = (float) (PS.course.get_maximum_velocity());
-            if (delta.x < -maxVelo) delta.x = (float) (-PS.course.get_maximum_velocity());
-            if (delta.y > maxVelo) delta.y = (float) (PS.course.get_maximum_velocity());
-            if (delta.y < -maxVelo) delta.y = (float) (-PS.course.get_maximum_velocity());
-            */
             theSimulation.takeShot(new Vector2D(-delta.x / ratioX, delta.y / ratioY));
             System.out.println(-delta.x / ratioX);
             System.out.println(delta.y / ratioY);
@@ -144,8 +136,8 @@ public class TrackingCameraController implements InputProcessor {
             return true;
         }
         if (!SHOOT) return false;
-        if (Play.instances.size() == 4)
-            Play.instances.remove(3);
+        if (Play.instances.size() == 3)
+            Play.instances.remove(2);
         Vector2 newTouch = new Vector2(screenX, screenY);
         delta = newTouch.cpy().sub(lastTouch);
         _model = arrowBuilder.createArrow(dirShot.x + (delta.x / 50), dirShot.y - (delta.y / 50), dirShot.z, dirShot.x, dirShot.y, dirShot.z, 0.1f, 0.3f, 10, GL20.GL_TRIANGLES, new Material(ColorAttribute.createDiffuse(Color.DARK_GRAY)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);

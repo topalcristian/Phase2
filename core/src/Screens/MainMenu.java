@@ -47,21 +47,21 @@ public class MainMenu implements Screen {
         table.invalidateHierarchy();
     }
 
-    Texture texture;
-    TextureRegion backgroundTexture;
 
     @Override
     public void show() {
         stage = new Stage();
 
         Gdx.input.setInputProcessor(stage);
-        skin = new Skin(Gdx.files.internal("menuSkin.json"), new TextureAtlas("atlas.pack"));
+        skin = new Skin(Gdx.files.internal("uiskin.json"));//skin3 =new Skin(Gdx.files.internal("menuSkin.json"), new TextureAtlas("atlas.pack"));
 
         table = new Table(skin);
         table.setFillParent(true);
         table.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("background.jpg"))));
+
         // creating heading
-        Label heading = new Label("GOLF", skin, "big");
+        Skin skin3 = new Skin(Gdx.files.internal("menuSkin.json"), new TextureAtlas("atlas.pack"));
+        Label heading = new Label("Crazy Golf", skin3);
         heading.setFontScale(2);
 
 
@@ -85,15 +85,7 @@ public class MainMenu implements Screen {
                 Play.gamePhysics = "verlet";
             }
         });
-/*
-        buttonPhysicsH = new TextButton("Heun's3", skin,"toggle");
-        buttonPhysicsH.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                new Heuns3();
-            }
-        });
-*/
+
         buttonPhysicsRK = new TextButton("RK4", skin2, "toggle");
         buttonPhysicsRK.addListener(new ClickListener() {
             @Override
@@ -111,7 +103,7 @@ public class MainMenu implements Screen {
         });
 
         ButtonGroup buttonGroupPhysics = new ButtonGroup(buttonPhysicsE, buttonPhysicsV, buttonPhysicsRK);
-//next set the max and min amount to be checked
+        //next set the max and min amount to be checked
         buttonGroupPhysics.setMaxCheckCount(1);
         buttonGroupPhysics.setMinCheckCount(1);
         buttonGroupPhysics.setChecked("RK4");
@@ -119,17 +111,14 @@ public class MainMenu implements Screen {
 
         Table tablePhysics = new Table();
         tablePhysics.setWidth(stage.getWidth());
-        //  tableDimensions.align(Align.center|Align.top);
-        //tablePhysics.setPosition(0, Gdx.graphics.getHeight() - 200);
-        //tablePhysics.row();
+
         tablePhysics.add(buttonPhysicsE).size(100, 50);
         tablePhysics.add(buttonPhysicsV).size(100, 50);
         tablePhysics.add(buttonPhysicsRK).size(100, 50);
-        //stage.addActor(tablePhysics);
 
 
         // creating buttons
-        TextButton buttonPlay = new TextButton("PLAY", skin, "big");
+        TextButton buttonPlay = new TextButton("PLAY", skin);
         buttonPlay.addListener(new ClickListener() {
 
             @Override
@@ -161,7 +150,7 @@ public class MainMenu implements Screen {
         });
         buttonSettings.pad(15);
 
-        TextButton buttonExit = new TextButton("EXIT", skin, "big");
+        TextButton buttonExit = new TextButton("EXIT", skin);
         buttonExit.addListener(new ClickListener() {
 
             @Override
@@ -172,7 +161,7 @@ public class MainMenu implements Screen {
         buttonExit.pad(15);
 
         // putting stuff together
-        table.add(heading).spaceBottom(100).row();
+        table.add(heading).spaceBottom(50).row();
         table.add(buttonPlay).spaceBottom(15).row();
         table.add(buttonSettings).spaceBottom(15).row();
         table.add(botButtton).spaceBottom(15).row();
@@ -191,12 +180,10 @@ public class MainMenu implements Screen {
 
     @Override
     public void pause() {
-
     }
 
     @Override
     public void resume() {
-
     }
 
     @Override

@@ -65,7 +65,7 @@ public class Win implements Screen {
         // creating heading
 
         // creating buttons
-        TextButton buttonPlay = new TextButton("PLAY AGAIN", skin);
+        TextButton buttonPlay = new TextButton("Tries: " + World.shots, skin);
         buttonPlay.addListener(new ClickListener() {
 
             @Override

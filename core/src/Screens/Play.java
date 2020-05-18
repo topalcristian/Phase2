@@ -29,12 +29,9 @@ import java.util.ArrayList;
 
 
 public class Play implements Screen {
+
+
     public static boolean timePassed = false;
-    public static int borderSize = 50;
-    public static String gamePhysics = "rk4";
-    public static boolean Bot = false;
-    public static TheCourse course;
-    final float terrainStepSize = 1;
     final int terrainWidth = 20;
     final int terrainLength = 15;
     //Position attribute - (x, y, z)
@@ -83,23 +80,27 @@ public class Play implements Screen {
         return shader;
     }
 
-
-    public PerspectiveCamera cam;
-    public static ArrayList<ModelInstance> instances = new ArrayList<>();
-
-    public SpriteBatch batch = new SpriteBatch();
-    public ModelBatch modelBatch = new ModelBatch();
+    //////////////////////////////////////////////////////////////////////////////////////////
+    public static int borderSize = 50;
+    public static String gamePhysics = "rk4";
+    public static boolean Bot = false;
+    public static TheCourse course;
     public static World theSimulation;
+    /////////////////////////////////MESH/////////////////////////////////////////////
+    final float terrainStepSize = 1;
+    public TrackingCameraController camController;
+    public PerspectiveCamera cam;
+    public ModelBatch modelBatch = new ModelBatch();
+    public static ArrayList<ModelInstance> instances = new ArrayList<>();
+    public SpriteBatch batch = new SpriteBatch();
     public Environment env;
+    public ModelInstance ourGolfBall, goal, skybox, wallInstance;
     public ModelBuilder modelBuilder = new ModelBuilder();
     public static PhysicsEngine engine = new Verlet();
-    int time1 = 0;
-    public TrackingCameraController camController;
     public Model golfBall;
     public Model hole;
     public Model sky;
-    //public CameraInputController trackingCameraController;
-    public ModelInstance ourGolfBall, goal, skybox;
+    int time1 = 0;
     Mesh terrain;
     ShaderProgram terrainShader;
     Stage UIStage;
@@ -128,7 +129,7 @@ public class Play implements Screen {
         course = new TheCourse();
         theSimulation = new World(course, engine);
         game = g;
-        //PhysicsEngine
+        //PhysicsEngine selection
         switch (gamePhysics) {
             case "rk4":
                 engine = new RungeKutta();
@@ -148,10 +149,20 @@ public class Play implements Screen {
         hole = modelBuilder.createSphere((float) course.get_hole_tolerance() + 2, 3, 1, 25, 25, new Material(new BlendingAttribute((float) 0.8), new ColorAttribute(1, Color.BLACK)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
         goal = new ModelInstance(hole, course.getObjects().get(1).position);
 
-        //Skybox
-        sky = modelBuilder.createSphere(1000, 1000, 1000, 25, 25, new Material(new BlendingAttribute((float) 0.8), new ColorAttribute(1, Color.BLUE)), VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
-        skybox = new ModelInstance(sky, course.getObjects().get(0).position);
+/*        //Skybox
+        sky = modelBuilder.createSphere(1000, 1000, 1000, 64, 64,
+                new Material(new TextureAttribute(TextureAttribute.Diffuse, new Texture(Gdx.files.local("skybox.jpg"))), new IntAttribute(IntAttribute.CullFace, 0)),
+                VertexAttributes.Usage.Position | VertexAttributes.Usage.TextureCoordinates | VertexAttributes.Usage.Normal);
+        skybox = new ModelInstance(sky, course.getObjects().get(0).position.x,course.getObjects().get(0).position.y,-500);
+*/
 
+        /*ModelBuilder modelBuilder = new ModelBuilder();
+        Model wall = modelBuilder.createBox(100, 1, 0.08f, new Material(ColorAttribute.createDiffuse(Color.LIGHT_GRAY)),
+                VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+        wallInstance = new ModelInstance(wall);
+        wallInstance.transform.setToTranslation(0,0,0);
+        wallInstance.transform.rotateRad(new Vector3(0, 1, 0), 0);
+*/
 
         // Environment
         env = new Environment();
@@ -188,7 +199,7 @@ public class Play implements Screen {
         skin = new Skin(Gdx.files.internal("menuSkin.json"), new TextureAtlas("atlas.pack"));
 
         //Labels
-        turnCount = new Label("Turns: " + theSimulation.shots, skin);
+        turnCount = new Label("Turns: " + World.shots, skin);
         turnCount.setSize(30, 20);
         turnCount.setPosition(10, Height2DScreen - 200);
         turnCount.setColor(Color.BROWN);
@@ -205,15 +216,12 @@ public class Play implements Screen {
         terrain = new Mesh(true, MAX_VERTS, 0, new VertexAttribute(VertexAttributes.Usage.Position, POSITION_COMPONENTS, "a_position"), new VertexAttribute(VertexAttributes.Usage.ColorPacked, 4, "a_color"));
         instances.add(ourGolfBall);
         instances.add(goal);
-        instances.add(skybox);
+        //instances.add(skybox);
+        //instances.add(wallInstance);
 
         ///////////////////////// FOR THE BOT ///////////////////////////////////////
-
-        //put = new PuttingSimulator(course,PS);
         if (Bot)
             bot1 = new GolfBot(course, theSimulation, engine, 500, 0.5);
-
-        //theSimulation.takeShot(new Vector2D(-5.157253569297628/1.66,5.149101993602694/1.66));
 
 
     }
@@ -354,35 +362,26 @@ public class Play implements Screen {
 
 
         if (theSimulation.completed) {
+            timePassed = false;
             game.setScreen(new Win(game));
 
         }
         // Show
         cam2D.update();
-
         modelBatch.begin(cam);
         instances.get(0).transform.setTranslation(course.getObjects().get(0).position);
-
         modelBatch.render(instances, env);
         modelBatch.end();
         UIStage.draw();
         UIStage.act();
-/*
-        if (put != null) {
-            //////////////////////
-            ///// TRY ////////////
-            //////////////////////
-            put.take_shot();
-            //put.take_random_shot();
-        }*/
     }
 
     private void updateText() {
         if (theSimulation.isInMove())
-            loading.setText("In Shot\nvelx:" + course.objects.get(0).velocity.get_x() + "\nvely:" + course.objects.get(0).velocity.get_y() + "\naccx:" + course.objects.get(0).acceleration.get_x() + "\naccy:" + course.objects.get(0).acceleration.get_y());
+            loading.setText("In Shot\nvelx:" + course.objects.get(0).velocity.get_x() + "\nvely:" + course.objects.get(0).velocity.get_y());
         else
-            loading.setText("Press the ball and direct the arrow\nvelx:" + course.objects.get(0).velocity.get_x() + "\nvely:" + course.objects.get(0).velocity.get_y() + "\naccx:" + course.objects.get(0).acceleration.get_x() + "\naccy:" + course.objects.get(0).acceleration.get_y());
-        turnCount.setText("Turns: " + theSimulation.shots);
+            loading.setText("Press the ball and direct the arrow\nvelx:" + course.objects.get(0).velocity.get_x() + "\nvely:" + course.objects.get(0).velocity.get_y());
+        turnCount.setText("Tries: " + World.shots);
     }
 
 

@@ -6,9 +6,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector3;
 
-import java.io.*;
-
-
 public class World {
     public static boolean inMove = false;
     public TheCourse course;
@@ -17,7 +14,7 @@ public class World {
     public static boolean justStarted = false;
     public boolean completed = false;
     Game game;
-    int shots = 0;
+    public static int shots = 0;
 
     public World(TheCourse course, PhysicsEngine engine) {
         this.course = course;
@@ -31,7 +28,6 @@ public class World {
             if (checkIfCompleted()) {
                 completed = true;
                 ((Game) Gdx.app.getApplicationListener()).setScreen(new Win(game));
-                //System.out.println("lol");
             }
 
             started = false;
@@ -91,29 +87,5 @@ public class World {
             this.course.getObjects().get(0).velocity = new Vector2D(0, 0);
         }
         return inMove;
-    }
-
-    public boolean saveCourse(String filePath) {
-        try {
-            FileOutputStream f = new FileOutputStream(filePath);
-            ObjectOutputStream outputStream = new ObjectOutputStream(f);
-            outputStream.writeObject(course);
-            outputStream.close();
-        } catch (IOException e) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean loadCourse(String filePath) {
-        try {
-            FileInputStream f = new FileInputStream(filePath);
-            ObjectInputStream inputStream = new ObjectInputStream(f);
-            course = (TheCourse) (inputStream.readObject());
-            inputStream.close();
-        } catch (IOException | ClassNotFoundException e) {
-            return false;
-        }
-        return true;
     }
 }
