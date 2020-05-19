@@ -74,6 +74,7 @@ public class Win implements Screen {
 
                     @Override
                     public void run() {
+                        World.shots = 0;
                         theSimulation.completed = false;
                         ((Game) Gdx.app.getApplicationListener()).setScreen(new Play(game));
                     }

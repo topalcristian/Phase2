@@ -32,6 +32,7 @@ public class Play implements Screen {
 
 
     public static boolean timePassed = false;
+    final float terrainStepSize = 1;
     final int terrainWidth = 20;
     final int terrainLength = 15;
     //Position attribute - (x, y, z)
@@ -87,7 +88,6 @@ public class Play implements Screen {
     public static TheCourse course;
     public static World theSimulation;
     /////////////////////////////////MESH/////////////////////////////////////////////
-    final float terrainStepSize = 1;
     public TrackingCameraController camController;
     public PerspectiveCamera cam;
     public ModelBatch modelBatch = new ModelBatch();
@@ -362,6 +362,7 @@ public class Play implements Screen {
 
 
         if (theSimulation.completed) {
+
             timePassed = false;
             game.setScreen(new Win(game));
 
