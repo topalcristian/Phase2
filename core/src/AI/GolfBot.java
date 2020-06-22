@@ -193,6 +193,17 @@ public class GolfBot {
         return child;
     }
 
+    private IndividualHit weightedCrossOver(IndividualHit dad, IndividualHit mom) {
+        double fitnessDad = dad.getFitness();
+        double fitnessMom = mom.getFitness();
+        double total = fitnessDad + fitnessMom;
+        double weightDad = (total - fitnessDad) / total;
+        double weightMom = (total - fitnessMom) / total;
+
+        IndividualHit child = new IndividualHit(dad.get_x()*weightDad + mom.get_x()*weightMom, dad.get_y()*weightDad + mom.get_y()*weightMom);
+        return child;
+    }
+
     //at the rate of the mutation, the x and y value has a chance of being a random value.
     /*public void mutation(IndividualHit hit){
         if(Math.random()<mutationRate){
@@ -220,6 +231,16 @@ public class GolfBot {
             hit.set_y(hit.get_y()+ThreadLocalRandom.current().nextDouble(-1,1));
         }
     }
+
+    private void pickyMutation(IndividualHit hit) {
+        if (Math.random() < mutationRate) {
+            double x = hit.get_x(); double y = hit.get_y();
+            double power = Math.sqrt(x*x + y*y); 
+            double angle = //TODO: seperate power and angle
+        }
+    }
+
+
     public boolean checkForWin(){
         if(getBestIndividual(hitPopulation).getFitness() <= winArea) {
             System.out.println("IS IN WIN AREA !!! -------------------------------");
